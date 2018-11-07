@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>My first three.js app</title>
+
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<style>
+			body { margin: 0; }
+
+		</style>
+	</head>
+	<body id="board2" style="background-color:#BBB">
+	<input type="button" id="startBtn" value="s" style="width: 0;height: 0;border: 0;padding: 0;" class="col-md-6 col-xs-6"/>
+	<script src="js/jquery.min.js"></script>
+		<script src="build/three.js"></script>
+    <script src="js/loaders/DDSLoader.js"></script>
+		<script src="js/loaders/MTLLoader.js"></script>
+		<script src="js/loaders/OBJLoader.js"></script>
+		<script src="js/controls/OrbitControls.js"></script>
+    <script src="js/Detector.js"></script>
+    <script src="js/libs/stats.min.js"></script>
+		<script src="js/controls/DragControls.js"></script>
+		<script src="js/controls/TrackballControls.js"></script>
+		<script src="js/renderers/Projector.js"></script>
+    <script src="js/chessboard3.min.js"></script>
+
+		<script >
+			$("#board2").height($(document).width());
+			$("#board2").width($(document).width());
+			var outPut = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
+			var board2 = new ChessBoard3('#board2', {
+			draggable: true,
+			dropOffBoard: 'trash',
+			sparePieces: false ,
+			rotateControls : true,
+			position : 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR' ,
+			onChange: function(oldPos, newPos) {
+				window.location.href = "#info://";
+				outPut = ChessBoard3.objToFen(newPos);
+			}
+			});
+			var praga = "wwi";
+    </script>
+	</body>
+</html>
